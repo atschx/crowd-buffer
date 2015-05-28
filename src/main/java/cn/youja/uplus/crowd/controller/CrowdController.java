@@ -2,20 +2,50 @@ package cn.youja.uplus.crowd.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.youja.uplus.crowd.redis.CrowdRedis;
+import cn.youja.uplus.crowd.model.Crowd;
+import cn.youja.uplus.crowd.service.CrowdService;
 
 @RestController
-public class CrowdController {
+public class CrowdController{
 
 	@Autowired
-	private CrowdRedis crowdRedis;
+	private CrowdService crowdService;
 
-	@RequestMapping("/")
-	String home() {
-		crowdRedis.test();
-		return "Hello World!";
+	/**
+	 * 新注册的用户
+	 * @param gender
+	 * @param count
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/new")
+	Crowd newRegister(
+			@RequestParam(value="gender",required=false) Byte gender,
+			@RequestParam(value="count") Byte count) {
+		
+		return crowdService.newUsers();
+		
 	}
+	
+	/**
+	 * 日活跃用户.
+	 * @param gender
+	 * @param count
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/dau")
+	Crowd dau(
+			@RequestParam(value="gender",required=false) Byte gender,
+			@RequestParam(value="count") Byte count) {
+		
+		return crowdService.newUsers();
+		
+	}
+	
 
 }

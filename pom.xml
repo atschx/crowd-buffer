@@ -1,14 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>cn.youja.uplus</groupId>
 	<artifactId>crowd-buffer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	
+	<name>crowd::buffer</name>
+	<description>facade api for light app developer</description>
 
 	<properties>
 		<jdk.version>1.7</jdk.version>
-		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+		<project.build.encoding>utf-8</project.build.encoding>
 	</properties>
 
 	<pluginRepositories>
@@ -68,18 +71,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-redis</artifactId>
 		</dependency>
-		
+
 	</dependencies>
 
 	<!-- Package as an executable jar -->
 	<build>
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -87,22 +89,14 @@
 				<configuration>
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<!-- 无web.xml -->
-					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<encoding>${project.build.encoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>cn.youja.uplus.crowd.CrowdBufferBootstrap</mainClass>
+					<mainClass>cn.youja.uplus.crowd.CrowdBufferApplication</mainClass>
 				</configuration>
 				<executions>
 					<execution>
@@ -120,8 +114,5 @@
 			</resource>
 		</resources>
 	</build>
-	<name>Crowd::API</name>
-
-
 
 </project>
