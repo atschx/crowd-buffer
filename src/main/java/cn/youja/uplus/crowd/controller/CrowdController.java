@@ -25,10 +25,10 @@ public class CrowdController{
 	@RequestMapping("/new")
 	Crowd newRegister(
 			@RequestParam(value="gender",required=false) Byte gender,
-			@RequestParam(value="count") Byte count) {
-		
-		return crowdService.newUsers();
-		
+			@RequestParam(value="count") Integer count) {
+
+		return crowdService.newUsersByGender(null != gender ? gender : 0, count);
+
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class CrowdController{
 			@RequestParam(value="gender",required=false) Byte gender,
 			@RequestParam(value="count") Byte count) {
 		
-		return crowdService.newUsers();
+		return crowdService.dauByGender(null != gender ? gender : 0, count);
 		
 	}
 	

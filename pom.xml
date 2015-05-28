@@ -5,7 +5,7 @@
 	<groupId>cn.youja.uplus</groupId>
 	<artifactId>crowd-buffer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<name>crowd::buffer</name>
 	<description>facade api for light app developer</description>
 
@@ -75,6 +75,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-redis</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
 		</dependency>
 
 	</dependencies>
