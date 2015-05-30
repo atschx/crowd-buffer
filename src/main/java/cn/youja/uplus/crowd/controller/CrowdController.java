@@ -17,6 +17,15 @@ public class CrowdController{
 	private CrowdService crowdService;
 	
 	@ResponseBody
+	@RequestMapping("/{seed}/{gender}")
+	Crowd wildcard(
+			@PathVariable("seed") String seed,
+			@PathVariable("gender") Byte gender,
+			@RequestParam(value="count") Integer count) {
+		return crowdService.reg(count);
+	}
+	
+	@ResponseBody
 	@RequestMapping("/new")
 	Crowd reg(
 			@RequestParam(value="count") Integer count) {

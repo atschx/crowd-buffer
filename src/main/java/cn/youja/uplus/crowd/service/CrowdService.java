@@ -6,7 +6,26 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import cn.youja.uplus.crowd.model.Crowd;
-
+/**
+ * uplus:user:reg
+ * uplus:user:reg:male
+ * uplus:user:reg:female
+ * 
+ * uplus:user:lastlogin
+ * uplus:user:lastlogin:male
+ * uplus:user:lastlogin:female
+ * 
+ * uplus:user:dau:<yyyyMMdd>
+ * uplus:user:dau:male:<yyyyMMdd>
+ * uplus:user:dau:female:<yyyyMMdd>
+ * uplus:user:wau:<yyyyWW>
+ * uplus:user:wau:male:<yyyyMMdd>
+ * uplus:user:wau:female:<yyyyMMdd>
+ * uplus:user:mau:<yyyyMM>
+ * uplus:user:mau:male:<yyyyMM>
+ * uplus:user:mau:female:<yyyyMM>
+ * 
+ */
 @Service
 public class CrowdService {
 
