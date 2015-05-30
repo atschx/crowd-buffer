@@ -1,6 +1,7 @@
 package cn.youja.uplus.crowd.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,32 +15,43 @@ public class CrowdController{
 
 	@Autowired
 	private CrowdService crowdService;
-
-	/**
-	 * 新注册的用户
-	 * @param gender
-	 * @param count
-	 * @return
-	 */
+	
 	@ResponseBody
 	@RequestMapping("/new")
-	Crowd newRegister(
-			@RequestParam(value="gender",required=false) Byte gender,
+	Crowd reg(
+			@RequestParam(value="count") Integer count) {
+		return crowdService.reg(count);
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/dau")
+	Crowd dau(
+			@RequestParam(value="count") Integer count) {
+		return crowdService.dau(count);
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/hot")
+	Crowd hot(
+			@RequestParam(value="count") Integer count) {
+		return crowdService.hot(count);
+	}
+
+	@ResponseBody
+	@RequestMapping("/new/{gender}")
+	Crowd regByGender(
+			@PathVariable("gender") Byte gender,
 			@RequestParam(value="count") Integer count) {
 
 		return crowdService.newUsersByGender(null != gender ? gender : 0, count);
 
 	}
 	
-	/**
-	 * 日活跃用户.
-	 * @param gender
-	 * @param count
-	 * @return
-	 */
 	@ResponseBody
-	@RequestMapping("/dau")
-	Crowd dau(
+	@RequestMapping("/dau/{gender}")
+	Crowd dauByGender(
 			@RequestParam(value="gender",required=false) Byte gender,
 			@RequestParam(value="count") Byte count) {
 		
@@ -47,5 +59,13 @@ public class CrowdController{
 		
 	}
 	
-
+	@ResponseBody
+	@RequestMapping("/hot/{gender}")
+	Crowd hotByGender(
+			@RequestParam(value="gender",required=false) Byte gender,
+			@RequestParam(value="count") Byte count) {
+		
+		return crowdService.hotByGender(null != gender ? gender : 0, count);
+		
+	}
 }
