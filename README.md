@@ -11,3 +11,19 @@
  \/____/ \/_/ \/___/   \/__//__/   \/__,_ /    \/___/   \/___/   \/_/    \/_/  \/____/ \/_/ 
 
 ```
+
+##Feature
+
+###health check
+
+[Talk is cheap，show me the code.]
+
+```
+$ curl http://localhost:18080/health
+{
+    "status": "DOWN",
+    "tair": "timeout",
+    "tfs": "ok"
+}
+```
+(http://127.0.0.1:18080/health) 测试

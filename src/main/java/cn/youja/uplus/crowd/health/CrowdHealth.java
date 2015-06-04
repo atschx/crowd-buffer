@@ -9,7 +9,11 @@ public class CrowdHealth implements HealthIndicator {
 
 	@Override
 	public Health health() {
-		return Health.up().build();
+		return new Health.Builder()
+				.withDetail("redis", "ok")
+				.withDetail("memory","open")
+				.up()
+				.build();
 	}
 
 }
